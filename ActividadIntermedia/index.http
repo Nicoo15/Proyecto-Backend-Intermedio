@@ -1,0 +1,196 @@
+### Registrar un usuario
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Nico",
+  "age" : 24,
+  "email": "nico@example.com",
+  "password": "Nico1234"
+}
+### token user : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjYyMDM1MDg0NjUzNjg5NTg4NWIwYjkiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzY5OTQwOH0.idkutkWlyeDSUPq4FzIjzlkxIij3UOh8AJ3lUNVZU0I
+
+### token admin : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3MzRjYzRjM2E4NWJjNzdiNDBjZDUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTgzNTk1MzB9.mVykHJDqa6aun5835SHon8chGtDr4UdySvI3EQglmxA
+
+### token admin 2 : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3MzRjYzRjM2E4NWJjNzdiNDBjZDUiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxODAzOTc1Nn0.QQvXyDwNagJ0ikShZZ78Y0szG70tTDn3-rnBWyKDxCA
+### token comercio: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3NDM3ZmQ2ODE3MDdlMDBiNmUwNTIiLCJpYXQiOjE3MTgwNDM1MTl9.FjbbkGL44v9ObNZ63du5q1K9_RmRKxTUHOlxhXWcKO8
+
+
+### Iniciar sesión de usuario
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin2@admin2.com",
+  "password": "Hola1234"
+}
+
+### Obtener todos los usuarios
+GET http://localhost:3000/api/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjYyMDNhMjg0NjUzNjg5NTg4NWIwYmIiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzY5OTQ5MH0.PT-dBxxppUf9EUFxGf1uIWGgE6Oq-ILxDlCQbk5iRHE
+
+### Obtener un usuario por ID
+GET http://localhost:3000/api/user/6661c9ceb72d909e432ad317
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjYyMDNhMjg0NjUzNjg5NTg4NWIwYmIiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzY5OTQ5MH0.PT-dBxxppUf9EUFxGf1uIWGgE6Oq-ILxDlCQbk5iRHE
+
+### Actualizar un usuario
+PUT http://localhost:3000/api/user/6661c9ceb72d909e432ad317
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjYyMDNhMjg0NjUzNjg5NTg4NWIwYmIiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzY5OTQ5MH0.PT-dBxxppUf9EUFxGf1uIWGgE6Oq-ILxDlCQbk5iRHE
+Content-Type: application/json
+
+{
+  "ciudad": "Barcelona",
+  "intereses": "Cine, Literatura",
+  "permiteRecibirOfertas": false
+}
+
+### Eliminar un usuario
+DELETE http://localhost:3000/api/user/ (poner id)
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjYyMDNhMjg0NjUzNjg5NTg4NWIwYmIiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzY5OTQ5MH0.PT-dBxxppUf9EUFxGf1uIWGgE6Oq-ILxDlCQbk5iRHE
+
+### Crear un comercio
+POST http://localhost:3000/api/comercio/crear HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3MzRjYzRjM2E4NWJjNzdiNDBjZDUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTgwNDQxOTd9.h_ZR_02t7EAOc_mBoRVKFuvlKf7DOhnK6KZPdl0MdL4
+
+{
+
+  "name": "Comercio Deporte",  
+  "cif": "AS4575S",
+  "email": "comercio.deporte@example.com",
+  "direccion": "Calle Depeorte 1",
+  "telefono": "789564231",
+  "ciudad": "Madrid",
+  "actividad": "Venta de material deportivo"  
+}
+###
+PUT http://localhost:3000/api/comercio/actualizar/666c165bcdb5375294aac8a4 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjZjMTY1YmNkYjUzNzUyOTRhYWM4YTQiLCJyb2xlIjoiY29tZXJjaW8iLCJpYXQiOjE3MTgzNTk2NDN9.uDLXCtSwzMZL5PyX7iXbzoqatEjg-wqaCrvLSgJr51k
+
+{
+
+  "name": "Comercio Test 99.5"  
+  
+  
+}
+
+### Obtener todos los comercios
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjZjMTY1YmNkYjUzNzUyOTRhYWM4YTQiLCJyb2xlIjoiY29tZXJjaW8iLCJpYXQiOjE3MTgzNTk2NDN9.uDLXCtSwzMZL5PyX7iXbzoqatEjg-wqaCrvLSgJr51k
+
+### Obtener todos los comercios
+GET http://localhost:3000/api/comercio
+
+### Obtener comercios ordenados por CIF
+GET http://localhost:3000/api/comercio?ordenarPorCif=true
+
+### Obtener un comercio por CIF
+GET http://localhost:3000/api/comercio/{cif}
+###
+
+GET http://localhost:3000/api/comercio/city?ciudad=Barcelona&sortByScoring=true
+
+
+### 
+PUT http://localhost:3000/api/comercio/actualizar/{cif}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjYyMDNhMjg0NjUzNjg5NTg4NWIwYmIiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzY5OTQ5MH0.PT-dBxxppUf9EUFxGf1uIWGgE6Oq-ILxDlCQbk5iRHE
+Content-Type: application/json
+
+{
+  "direccion": "Calle Nueva 456",
+  "telefono": "987654321"
+}
+
+### Borrar un comercio (físico)
+DELETE http://localhost:3000/api/comercio/borrar/{cif}?tipo=fisico
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjYyMDNhMjg0NjUzNjg5NTg4NWIwYmIiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzY5OTQ5MH0.PT-dBxxppUf9EUFxGf1uIWGgE6Oq-ILxDlCQbk5iRHE
+
+### Borrar un comercio (lógico)
+DELETE http://localhost:3000/api/comercio/borrar/{cif}?tipo=logico
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjYyMDNhMjg0NjUzNjg5NTg4NWIwYmIiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzY5OTQ5MH0.PT-dBxxppUf9EUFxGf1uIWGgE6Oq-ILxDlCQbk5iRHE
+
+### Crear una publicación
+POST http://localhost:3000/api/post
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjZmMjhlMjI4NzNlZjgxNDU2YWM2YTAiLCJyb2xlIjoiY29tZXJjaW8iLCJpYXQiOjE3MTg1NjA5OTR9.t1MYVO_9IwSStav6WgCycwJsDpTuId1lF1gygAG25ME
+
+{
+  "ciudad": "Polonia",
+  "actividad": "Tecnología",
+  "titulo": "Nueva Tecnología en 2024",
+  "resumen": "Resumen del post",
+  "textos": "Texto completo del post",
+  "fotos": "URL de la foto"
+}
+
+
+### Obtener todas las publicaciones
+GET http://localhost:3000/api/post
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjZmMjhlMjI4NzNlZjgxNDU2YWM2YTAiLCJyb2xlIjoiY29tZXJjaW8iLCJpYXQiOjE3MTg1NjA5OTR9.t1MYVO_9IwSStav6WgCycwJsDpTuId1lF1gygAG25ME
+
+### Obtener una publicación por ID
+GET http://localhost:3000/api/post/{post_id}
+
+### Obtener publicaciones por ciudad
+GET http://localhost:3000/api/post/ciudad/{ciudad}
+
+### Obtener publicaciones por ciudad y actividad
+GET http://localhost:3000/api/post/ciudad/{ciudad}/actividad/{actividad}
+
+### 
+PUT http://localhost:3000/api/post/666f25a6de019ae709f325cf HTTP/1.1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3NDM3ZmQ2ODE3MDdlMDBiNmUwNTIiLCJpYXQiOjE3MTgwNDM1MTl9.FjbbkGL44v9ObNZ63du5q1K9_RmRKxTUHOlxhXWcKO8
+
+{
+  "titulo": "Actualización de la Tecnología en 2024",
+  "resumen": "Resumen actualizado",
+  "textos": "Texto completo actualizado"
+}
+
+### 
+DELETE http://localhost:3000/api/post/666f25a6de019ae709f325cf HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3NDM3ZmQ2ODE3MDdlMDBiNmUwNTIiLCJpYXQiOjE3MTgwNDM1MTl9.FjbbkGL44v9ObNZ63du5q1K9_RmRKxTUHOlxhXWcKO8
+
+
+### Añadir puntuación a una publicación
+POST http://localhost:3000/api/post/{post_id}/scoring
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjYyMDM1MDg0NjUzNjg5NTg4NWIwYjkiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzY5OTQwOH0.idkutkWlyeDSUPq4FzIjzlkxIij3UOh8AJ3lUNVZU0I
+
+Content-Type: application/json
+
+{
+  "scoring": 5
+}
+
+### Obtener puntuación de una publicación
+GET http://localhost:3000/api/post/666f25a6de019ae709f325cf/reviews
+
+
+### Añadir review a una publicación
+
+POST http://localhost:3000/api/post/666f25a6de019ae709f325cf/review
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjYyMDM1MDg0NjUzNjg5NTg4NWIwYjkiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzY5OTQwOH0.idkutkWlyeDSUPq4FzIjzlkxIij3UOh8AJ3lUNVZU0I
+
+{
+  "opinion": "Esta es una opinión 2.",
+  "rating": 2
+}
+
+###
+
+DELETE  http://localhost:3000/api/post/666f25a6de019ae709f325cf HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjZmMjhlMjI4NzNlZjgxNDU2YWM2YTAiLCJyb2xlIjoiY29tZXJjaW8iLCJpYXQiOjE3MTg1NjA5OTR9.t1MYVO_9IwSStav6WgCycwJsDpTuId1lF1gygAG25ME
+###
+
+
+###
+
+GET http://localhost:3000/api/post/city/Polonia?sortByScoring=true
+
+###
+GET http://localhost:3000/api/post/city/Polonia/activity/Surf?sortByScoring=true
+
+### Actualizar un comercio

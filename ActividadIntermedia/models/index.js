@@ -1,8 +1,8 @@
+const users = require("./mongo/users");
+
 const models = {
-    comerModel: require('./nosql/comercio')
-    //userModel: require("./user"),
-    
-    //commerceModel: require("./commerce"),
-    //storageModel:require('./nosql/storage')
-  };
-  module.exports = models;
+  comerModel: require("./mongo/comercio"),
+  userModel: require("./mongo/users"),
+  postModel: require("./mongo/post"),
+};
+module.exports = models;
